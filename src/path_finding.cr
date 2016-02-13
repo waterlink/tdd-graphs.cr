@@ -1,12 +1,18 @@
-module PathFinding
-  extend self
+class PathFinding
+  def self.find_path(graph, start, finish)
+    new(graph, finish).find_path(start)
+  end
 
-  def find_path(graph, start, finish, visited=empty)
+  private getter graph, finish
+  def initialize(@graph, @finish)
+  end
+
+  def find_path(start, visited=empty)
     return {false, empty} if visited.includes?(start)
     return {true, [start]} if start == finish
 
     graph.fetch(start, empty).each do |node|
-      ok, path = find_path(graph, node, finish, visited + [start])
+      ok, path = find_path(node, visited + [start])
       return {true, [start] + path} if ok
     end
 
