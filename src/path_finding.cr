@@ -16,7 +16,7 @@ class PathFinding
     walk(start)
   end
 
-  private def walk(node)
+  private def walk(start)
     graph.fetch(start, empty).each do |node|
       ok, path = find_path(node)
       return {true, [start] + path} if ok
