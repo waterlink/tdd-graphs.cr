@@ -11,5 +11,8 @@ describe PathFinding do
 
     PathFinding.find_path(empty_graph, 2, 2)
       .should eq({true, [2]})
+
+    PathFinding.find_path({1 => [2]}, 1, 2)
+      .should eq({true, [1, 2]})
   end
 end
