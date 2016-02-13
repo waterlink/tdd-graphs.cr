@@ -8,6 +8,17 @@ module PathFinding
       if graph[start].includes?(finish)
         return {true, [start, finish]}
       end
+
+      nodes = graph[start]
+
+      if nodes.size > 0
+        node = nodes[0]
+
+        if graph[node].includes?(finish)
+          return {true, [start, node, finish]}
+        end
+      end
+
     end
 
     {false, empty}
