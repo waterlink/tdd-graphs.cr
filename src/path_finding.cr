@@ -19,6 +19,14 @@ module PathFinding
         end
       end
 
+      if nodes.size > 1
+        node = nodes[1]
+
+        if graph[node].includes?(finish)
+          return {true, [start, node, finish]}
+        end
+      end
+
     end
 
     {false, empty}
