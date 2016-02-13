@@ -13,6 +13,10 @@ class PathFinding
     return {true, [start]} if start == finish
 
     visited << start
+    walk(start)
+  end
+
+  private def walk(node)
     graph.fetch(start, empty).each do |node|
       ok, path = find_path(node)
       return {true, [start] + path} if ok
