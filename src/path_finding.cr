@@ -5,7 +5,7 @@ module PathFinding
     return {true, [start]} if start == finish
 
     if graph.has_key?(start)
-      if graph[start].first == finish
+      if graph[start].includes?(finish)
         return {true, [start, finish]}
       end
     end
