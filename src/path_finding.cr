@@ -14,16 +14,20 @@ module PathFinding
       if nodes.size > 0
         node = nodes[0]
 
-        if graph[node].includes?(finish)
-          return {true, [start, node, finish]}
+        if graph.has_key?(node)
+          if graph[node].includes?(finish)
+            return {true, [start, node, finish]}
+          end
         end
       end
 
       if nodes.size > 1
         node = nodes[1]
 
-        if graph[node].includes?(finish)
-          return {true, [start, node, finish]}
+        if graph.has_key?(node)
+          if graph[node].includes?(finish)
+            return {true, [start, node, finish]}
+          end
         end
       end
 
