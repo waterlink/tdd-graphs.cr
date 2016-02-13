@@ -13,6 +13,8 @@ module PathFinding
     i = 0
     while nodes.size > i
       node = nodes[i]
+      
+      return {true, [start, finish]} if node == finish
 
       if graph.fetch(node, empty).includes?(finish)
         return {true, [start, node, finish]}
