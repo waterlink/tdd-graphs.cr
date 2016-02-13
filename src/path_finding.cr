@@ -5,7 +5,7 @@ class PathFinding
 
   private getter graph, finish, visited
   def initialize(@graph, @finish)
-    @visted = empty
+    @visited = empty
   end
 
   def find_path(start)
