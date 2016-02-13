@@ -4,16 +4,12 @@ module PathFinding
   def find_path(graph, start, finish)
     return {true, [start]} if start == finish
 
-    if graph.fetch(start, empty).includes?(finish)
-      return {true, [start, finish]}
-    end
-
     nodes = graph.fetch(start, empty)
 
     i = 0
     while nodes.size > i
       node = nodes[i]
-      
+
       return {true, [start, finish]} if node == finish
 
       if graph.fetch(node, empty).includes?(finish)
