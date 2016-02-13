@@ -3,16 +3,18 @@ class PathFinding
     new(graph, finish).find_path(start)
   end
 
-  private getter graph, finish
+  private getter graph, finish, visited
   def initialize(@graph, @finish)
+    @visted = empty
   end
 
-  def find_path(start, visited=empty)
+  def find_path(start)
     return {false, empty} if visited.includes?(start)
     return {true, [start]} if start == finish
 
+    visited << start
     graph.fetch(start, empty).each do |node|
-      ok, path = find_path(node, visited + [start])
+      ok, path = find_path(node)
       return {true, [start] + path} if ok
     end
 
