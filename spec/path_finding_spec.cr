@@ -17,5 +17,8 @@ describe PathFinding do
 
     PathFinding.find_path({1 => [2]}, 2, 3)
       .should eq({false, empty})
+
+    PathFinding.find_path({1 => [3, 2]}, 1, 2)
+      .should eq({true, [1, 2]})
   end
 end
