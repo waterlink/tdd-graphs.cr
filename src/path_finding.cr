@@ -8,7 +8,7 @@ module PathFinding
       return {true, [start, finish]}
     end
 
-    nodes = graph[start]
+    nodes = graph.fetch(start, empty)
 
     if nodes.size > 0
       node = nodes[0]
