@@ -9,6 +9,10 @@ module PathFinding
 
       graph.fetch(node, empty).each do |node2|
         return {true, [start, node, finish]} if node2 == finish
+
+        graph.fetch(node2, empty).each do |node3|
+          return {true, [start, node, node2, finish]} if node3 == finish
+        end
       end
     end
 
